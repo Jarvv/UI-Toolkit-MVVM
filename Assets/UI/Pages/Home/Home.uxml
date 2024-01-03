@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Pages/Home/Home.uss?fileID=7433441132597879392&amp;guid=d6487e4a839c6e743a35b7a5bd46e987&amp;type=3#Home" />
+    <Style src="project://database/Assets/UI/App.uss?fileID=7433441132597879392&amp;guid=bd049c6caa9b3d1418c2feda049b97d7&amp;type=3#App" />
+    <ui:VisualElement name="app" class="page" style="flex-grow: 1;" />
+</ui:UXML>

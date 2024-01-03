@@ -1,0 +1,54 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UIElements;
+
+namespace UI.ViewStates
+{
+     public class #SCRIPTNAME# : ViewState
+     {
+          public new class UxmlFactory : UxmlFactory<#SCRIPTNAME#, UxmlTraits> { }
+
+          public new class UxmlTraits : VisualElement.UxmlTraits
+          {
+               UxmlEnumAttributeDescription<#SCRIPTNAME#s> _state =
+                    new UxmlEnumAttributeDescription<#SCRIPTNAME#s> { name = "state", defaultValue = #SCRIPTNAME#s.DEFAULT };
+
+               public override void Init(VisualElement ve, IUxmlAttributes bag, CreationContext cc)
+               {
+                    base.Init(ve, bag, cc);
+                    var #SCRIPTNAME# = ve as #SCRIPTNAME#;
+
+                    // Init states
+                    #SCRIPTNAME#.EnumStates = new Dictionary<Enum, string>()
+                    {
+                         {#SCRIPTNAME#s.DEFAULT, "--default"},
+                    };
+
+                    #SCRIPTNAME#.SetSVEState(_state.GetValueFromBag(bag, cc));
+               }
+          }
+
+          public #SCRIPTNAME#s State
+          {
+               get; private set;
+          }
+
+          public #SCRIPTNAME#()
+		{
+			RegisterCallback<AttachToPanelEvent>(OnAttachToPanel);
+		}
+		
+		private void OnAttachToPanel(AttachToPanelEvent evt)
+		{
+			UnregisterCallback<AttachToPanelEvent>(OnAttachToPanel);
+			SetSVEState(State);
+		}
+     }
+
+     public enum #SCRIPTNAME#s
+     {
+          DEFAULT
+     }
+}

@@ -1,0 +1,10 @@
+.collection {
+    display: none;
+}
+
+.app {
+}
+
+.app--collection .collection {
+    display: flex;
+}

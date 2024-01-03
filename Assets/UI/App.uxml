@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="Collection" src="project://database/Assets/UI/Pages/Collection/Collection.uxml?fileID=9197481963319205126&amp;guid=2e9289c371dc60d4ea27a7759f2fecc7&amp;type=3#Collection" />
+    <Style src="project://database/Assets/UI/App.uss?fileID=7433441132597879392&amp;guid=bd049c6caa9b3d1418c2feda049b97d7&amp;type=3#App" />
+    <Style src="project://database/Assets/UI/AppStates.uss?fileID=7433441132597879392&amp;guid=c4283de7848810a459181eab43f8f1ed&amp;type=3#AppStates" />
+    <ui:VisualElement name="app" class="app" style="flex-grow: 1; width: 100%; height: 100%; position: absolute; top: 0; right: 0; left: 0; bottom: 0;">
+        <ui:Instance template="Collection" name="Collection" class="page collection" />
+        <Views.UI.States.AppViewState />
+    </ui:VisualElement>
+</ui:UXML>

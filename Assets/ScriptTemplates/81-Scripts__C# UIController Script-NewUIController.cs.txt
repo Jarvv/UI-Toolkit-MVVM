@@ -1,0 +1,16 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Controllers.UI
+{
+     public class #SCRIPTNAME# : UIController
+     {
+		protected override void Awake()
+		{
+			base.Awake();
+			
+               // Create your ui view here, query the root visual element of the views document
+		} 
+     }
+}

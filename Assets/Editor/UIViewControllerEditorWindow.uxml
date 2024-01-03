@@ -1,0 +1,26 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Editor/UIViewControllerEditorWindow.uss?fileID=7433441132597879392&amp;guid=84d7878ce0234ea4f8dc490b0e6cd10f&amp;type=3#UIViewControllerEditorWindow" />
+    <ui:VisualElement name="header_row" class="header-row" style="flex-grow: 1;">
+        <ui:Label text="Assets to Create" class="header-label" style="font-size: 12px; -unity-font-style: bold; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 6px;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="script_tow" class="row" style="flex-grow: 1;">
+        <ui:TextField label="Name" name="script_name_text_field" />
+    </ui:VisualElement>
+    <ui:VisualElement name="view_row" class="row" style="flex-grow: 1;">
+        <ui:TextField label="View" name="view_text_field" readonly="true" class="read-only" />
+    </ui:VisualElement>
+    <ui:VisualElement name="controller_row" class="row" style="flex-grow: 1;">
+        <ui:TextField label="Controller" name="controller_text_field" readonly="true" class="read-only" />
+    </ui:VisualElement>
+    <ui:VisualElement name="uxml_row" class="row" style="flex-grow: 1;">
+        <ui:Toggle label="UXML" name="uxml_toggle" value="true" />
+        <ui:TextField name="uxml_text_field" />
+    </ui:VisualElement>
+    <ui:VisualElement name="uss_row" class="row" style="flex-grow: 1;">
+        <ui:Toggle label="USS" name="uss_toggle" value="true" />
+        <ui:TextField name="uss_text_field" />
+    </ui:VisualElement>
+    <ui:VisualElement name="button_row" class="row button-row" style="flex-grow: 1;">
+        <ui:Button text="Confirm" name="confirm_button" class="confirm-button" />
+    </ui:VisualElement>
+</ui:UXML>
