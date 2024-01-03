@@ -1,5 +1,24 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Pages/Home/Home.uss?fileID=7433441132597879392&amp;guid=d6487e4a839c6e743a35b7a5bd46e987&amp;type=3#Home" />
     <Style src="project://database/Assets/UI/App.uss?fileID=7433441132597879392&amp;guid=bd049c6caa9b3d1418c2feda049b97d7&amp;type=3#App" />
-    <ui:VisualElement name="app" class="page" style="flex-grow: 1;" />
+    <ui:VisualElement name="home" data-source-type="Views.UI.ViewModels.HomeViewModel, Assembly-CSharp" class="page" style="flex-grow: 1; background-color: rgb(255, 255, 255); padding-top: 100px; padding-right: 60px; padding-bottom: 60px; padding-left: 60px; align-items: center; justify-content: flex-start;">
+        <ui:Label name="user_name" text="User Name" style="-unity-text-align: upper-center; font-size: 50px; margin-bottom: 50px;">
+            <Bindings>
+                <ui:DataBinding property="text" binding-mode="ToTarget" data-source-path="User.Name" />
+            </Bindings>
+        </ui:Label>
+        <ui:VisualElement name="user_image_container" style="width: 600px; height: 600px; justify-content: center; align-items: center; background-color: rgb(0, 0, 0); margin-bottom: 50px;">
+            <ui:VisualElement name="user_image" style="width: 500px; height: 500px; background-color: rgb(255, 255, 255);">
+                <Bindings>
+                    <ui:DataBinding property="style.backgroundImage" binding-mode="ToTarget" data-source-path="User.Image" />
+                </Bindings>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Label text="Integer id tortor augue. Ut ullamcorper eros tempor, pulvinar arcu eu, suscipit ante. Etiam maximus ante nec lacus semper, eget cursus purus venenatis. Nulla non ipsum ut est laoreet ornare eu eget dui. Aliquam ac arcu finibus, volutpat sapien in, facilisis sapien. Aliquam erat volutpat. Quisque eget libero a ex sodales condimentum. Cras est mauris, pharetra ullamcorper posuere id, placerat a nisi. Aliquam auctor interdum arcu, quis congue felis ultrices nec. Sed dapibus nulla lectus, finibus finibus leo posuere nec. " name="user_description" style="font-size: 40px; width: 1000px; white-space: normal; margin-bottom: 50px;">
+            <Bindings>
+                <ui:DataBinding property="text" binding-mode="ToTarget" data-source-path="User.Description" />
+            </Bindings>
+        </ui:Label>
+        <ui:Button text="View More" name="view_more_button" style="width: 400px; height: 100px; font-size: 35px;" />
+    </ui:VisualElement>
 </ui:UXML>

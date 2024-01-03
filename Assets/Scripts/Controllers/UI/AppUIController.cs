@@ -1,10 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Controllers.UI;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Views.UI;
 
-namespace Controllers
+namespace Controllers.UI
 {
 	public class AppUIController : UIController
 	{
@@ -15,6 +17,14 @@ namespace Controllers
 			base.Awake();
 			
 			_appUIView = new AppUIView(UI.rootVisualElement.Q<VisualElement>("app"));
-		}   	
+		}
+
+		protected override void OnControllerEvent(Enum controllerEvent, object data)
+		{
+			switch(controllerEvent)
+			{
+
+			}
+		}
 	}
 }

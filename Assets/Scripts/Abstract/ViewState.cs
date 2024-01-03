@@ -10,7 +10,7 @@ public abstract class ViewState : VisualElement
 
 	protected Enum _state;
 	
-	public void SetSVEState(Enum state)
+	public void SetState(Enum state)
 	{
 		if(parent == null) return;
 		

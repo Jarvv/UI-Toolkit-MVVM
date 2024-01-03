@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ using Util;
 
 public abstract class UIView
 {
+	public Action<Enum, object> ViewEvent;
+	
 	protected UIDocument UI;
 	
 	protected VisualElement rootElement;
@@ -17,8 +20,8 @@ public abstract class UIView
 		rootElement = parentElement;
 		eventRegistry = new EventRegistry();
 	}
-	
-	protected virtual void Disable()
+
+	public virtual void Disable()
 	{
 		eventRegistry.Dispose();
 	}

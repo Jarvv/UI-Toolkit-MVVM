@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794090217f41d0c49bf39eaedb8897a2, type: 3}
+  m_Name: James
+  m_EditorClassIdentifier: 
+  Name: James
+  Description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+    sodales dui non orci viverra volutpat. Integer suscipit quis orci a iaculis.
+    Ut tincidunt bibendum diam, ut porta ante rhoncus at. Pellentesque et metus sit
+    amet augue vulputate posuere. Ut vitae justo condimentum, placerat nulla pellentesque,
+    volutpat magna. Ut nec magna fringilla massa maximus ullamcorper quis iaculis
+    quam. Nulla gravida volutpat elementum. Aliquam massa odio, convallis in ante
+    vitae, dapibus tincidunt nibh. Morbi luctus diam quis nulla pulvinar, sed condimentum
+    nulla bibendum. Duis ut magna viverra, vehicula libero ut, luctus mi. Lorem ipsum
+    dolor sit amet, consectetur adipiscing elit. Praesent commodo nisl eget ante
+    mollis fringilla. '
+  Image: {fileID: 8228938214290033325, guid: 6c30fb838bedb2d46b3f6b13ebdc8922, type: 3}

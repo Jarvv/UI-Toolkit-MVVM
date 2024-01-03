@@ -8,3 +8,11 @@
 .app--collection .collection {
     display: flex;
 }
+
+.home {
+    display: none;
+}
+
+.app--home .home {
+    display: flex;
+}
