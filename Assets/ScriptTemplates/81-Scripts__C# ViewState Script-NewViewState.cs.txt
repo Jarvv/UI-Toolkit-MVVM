@@ -26,7 +26,7 @@ namespace UI.ViewStates
                          {#SCRIPTNAME#s.DEFAULT, "--default"},
                     };
 
-                    #SCRIPTNAME#.SetSVEState(_state.GetValueFromBag(bag, cc));
+                    #SCRIPTNAME#.SetState(_state.GetValueFromBag(bag, cc));
                }
           }
 
@@ -43,7 +43,7 @@ namespace UI.ViewStates
 		private void OnAttachToPanel(AttachToPanelEvent evt)
 		{
 			UnregisterCallback<AttachToPanelEvent>(OnAttachToPanel);
-			SetSVEState(State);
+			SetState(State);
 		}
      }
 

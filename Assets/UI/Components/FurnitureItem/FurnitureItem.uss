@@ -1,0 +1,35 @@
+.furniture-item {
+    background-color: rgb(21, 16, 48);
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    width: 400px;
+    height: 400px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-top-color: rgb(61, 244, 222);
+    border-left-color: rgb(61, 244, 222);
+    border-right-color: rgb(194, 0, 127);
+    border-bottom-color: rgb(194, 0, 127);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+}
+
+.furniture-item > .unity-text-element {
+    color: rgb(211, 211, 211);
+    -unity-font-style: bold;
+    -unity-font-definition: url('project://database/Assets/Fonts/TitilliumWeb-Light.ttf?fileID=12800000&guid=6a0642339c4a2ba4cb39c97d06b258d6&type=3#TitilliumWeb-Light');
+    font-size: 35px;
+}
+
+.furniture-item > .unity-image {
+    width: 200px;
+    height: 200px;
+}

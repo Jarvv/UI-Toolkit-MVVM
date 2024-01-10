@@ -5,9 +5,9 @@ using UnityEngine.UIElements;
 
 namespace Views.UI
 {
-     public class #SCRIPTNAME# : UIView
-     {
-          public #SCRIPTNAME#(VisualElement parentElement) : base(parentElement)
+	public class #SCRIPTNAME# : UIView
+	{
+		public #SCRIPTNAME#(VisualElement parentElement) : base(parentElement)
 		{
 			SetVisualElements();
 			RegisterCallbacks();
@@ -22,5 +22,5 @@ namespace Views.UI
 		{
 			
 		} 
-     }
+	}
 }

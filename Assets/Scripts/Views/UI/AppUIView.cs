@@ -17,12 +17,7 @@ namespace Views.UI
 
 		private void SetVisualElements()
 		{
-			_appViewState = rootElement.Q<AppViewState>();
-		}
-		
-		public void ShowViewMore()
-		{
-			_appViewState.SetState(AppViewStates.HOME);
+			_appViewState = _rootElement.Q<AppViewState>();
 		}
 	}
 }

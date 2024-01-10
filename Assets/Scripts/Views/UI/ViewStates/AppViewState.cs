@@ -13,7 +13,7 @@ namespace Views.UI.States
 		public new class UxmlTraits : VisualElement.UxmlTraits
 		{
 			UxmlEnumAttributeDescription<AppViewStates> _state =
-				new UxmlEnumAttributeDescription<AppViewStates> { name = "state", defaultValue = AppViewStates.HOME };
+				new UxmlEnumAttributeDescription<AppViewStates> { name = "state", defaultValue = AppViewStates.CATALOGUE };
 
 			public override void Init(VisualElement ve, IUxmlAttributes bag, CreationContext cc)
 			{
@@ -23,8 +23,7 @@ namespace Views.UI.States
 				// Init states
 				AppViewState.EnumStates = new Dictionary<Enum, string>()
 				{
-					{AppViewStates.HOME, "app--home"},
-					{AppViewStates.COLLECTION, "app--collection"},
+					{AppViewStates.CATALOGUE, "app--catalogue"},
 				};
 
 				AppViewState.State = _state.GetValueFromBag(bag, cc);
@@ -50,6 +49,6 @@ namespace Views.UI.States
 
 	public enum AppViewStates
 	{
-		HOME, COLLECTION
+		CATALOGUE
 	}
 }

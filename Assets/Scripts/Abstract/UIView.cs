@@ -11,18 +11,18 @@ public abstract class UIView
 	
 	protected UIDocument UI;
 	
-	protected VisualElement rootElement;
+	protected VisualElement _rootElement;
 	
-	protected EventRegistry eventRegistry;
+	protected EventRegistry _eventRegistry;
 	
 	public UIView(VisualElement parentElement)
 	{
-		rootElement = parentElement;
-		eventRegistry = new EventRegistry();
+		_rootElement = parentElement;
+		_eventRegistry = new EventRegistry();
 	}
 
 	public virtual void Disable()
 	{
-		eventRegistry.Dispose();
+		_eventRegistry.Dispose();
 	}
 }

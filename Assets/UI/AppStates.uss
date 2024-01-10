@@ -1,18 +1,10 @@
-.collection {
-    display: none;
-}
-
 .app {
 }
 
-.app--collection .collection {
-    display: flex;
-}
-
-.home {
+.catalogue {
     display: none;
 }
 
-.app--home .home {
+.app--catalogue .catalogue {
     display: flex;
 }

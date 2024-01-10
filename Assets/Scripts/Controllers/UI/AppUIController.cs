@@ -18,13 +18,5 @@ namespace Controllers.UI
 			
 			_appUIView = new AppUIView(UI.rootVisualElement.Q<VisualElement>("app"));
 		}
-
-		protected override void OnControllerEvent(Enum controllerEvent, object data)
-		{
-			switch(controllerEvent)
-			{
-
-			}
-		}
 	}
 }
