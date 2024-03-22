@@ -1,9 +1,18 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Components/FurnitureItem/FurnitureItem.uss?fileID=7433441132597879392&amp;guid=675236f789dcb6c49a5143a6f9bafc01&amp;type=3#FurnitureItem" />
     <Style src="project://database/Assets/UI/App.uss?fileID=7433441132597879392&amp;guid=bd049c6caa9b3d1418c2feda049b97d7&amp;type=3#App" />
-    <ui:Button name="furniture_item" text="Furniture" data-source-type="ScriptableObjects.FurnitureSO, Assembly-CSharp" icon-image="project://database/Assets/Sprites/chair.png?fileID=21300000&amp;guid=3bdbdbda400f81c478bb7df2624688a2&amp;type=3#chair" class="furniture-item" style="height: 400px;">
+    <ui:Button name="furniture_item" data-source-type="Views.UI.ViewModels.FurnitureItemViewModel, Assembly-CSharp" class="furniture-item" style="height: 400px;">
+        <ui:VisualElement class="unity-image" style="flex-grow: 0;">
+            <Bindings>
+                <ui:DataBinding property="style.backgroundImage" data-source-path="Furniture.Thumbnail" binding-mode="ToTarget" />
+            </Bindings>
+        </ui:VisualElement>
+        <ui:Label text="Label">
+            <Bindings>
+                <ui:DataBinding property="text" data-source-path="Furniture.FurnitureName" binding-mode="ToTarget" />
+            </Bindings>
+        </ui:Label>
         <Bindings>
-            <ui:DataBinding property="text" binding-mode="ToTarget" data-source-path="FurnitureName" />
             <ui:DataBinding property="iconImage" binding-mode="ToTarget" data-source-path="Thumbnail" />
         </Bindings>
     </ui:Button>

@@ -1,2 +1,10 @@
 .catalogue-list {
+    flex-grow: 1;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.unity-scroll-view__content-container {
+    flex-direction: row;
+    align-items: center;
 }

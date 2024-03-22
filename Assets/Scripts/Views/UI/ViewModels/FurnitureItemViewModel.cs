@@ -8,6 +8,11 @@ namespace Views.UI.ViewModels
 {
 	public class FurnitureItemViewModel : ViewModel
 	{
+		public FurnitureItemViewModel(FurnitureSO furniture) : base()
+		{
+			_furniture = furniture;
+		}
+		
 		private FurnitureSO _furniture;
 	
 		[CreateProperty]

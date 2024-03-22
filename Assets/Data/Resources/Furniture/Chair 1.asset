@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Chair 1
   m_EditorClassIdentifier: 
   id: 975ebff8-5533-4c4e-ba82-8f9a238e072a
-  FurnitureName: Chair
+  FurnitureName: Big Chair
   Description: This is a chair.
-  Thumbnail: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  Thumbnail: {fileID: 21300000, guid: 8b4fc8bd95b43424697b89fbbe5693d3, type: 3}
   ModelPrefab: {fileID: 0}

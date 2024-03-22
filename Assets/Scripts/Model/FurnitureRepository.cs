@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using ScriptableObjects;
 using UnityEngine;
 
@@ -22,6 +23,11 @@ namespace Model
 		public FurnitureSO[] GetAllFurnitureItems()
 		{
 			return _furnitureItems;
+		}
+		
+		public FurnitureSO GetFurnitureItemById(string id)
+		{
+			return _furnitureItems.First(item => item.id == id);
 		}
 	}
 }

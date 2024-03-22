@@ -9,7 +9,7 @@ namespace Controllers
 {
 	public class FurnitureController : Controller
 	{
-    		private FurnitureRepository _furnitureRepository;
+		private FurnitureRepository _furnitureRepository;
 		
 		private void Awake()
 		{
@@ -19,16 +19,23 @@ namespace Controllers
 		private void OnEnable()
 		{
 			FurnitureControllerEvents.LoadFurnitureData += LoadFurnitureData;
+			FurnitureControllerEvents.GetFurnitureItem += GetFurnitureItem;
 		}
 
 	   	private void OnDisable()
 		{
 			FurnitureControllerEvents.LoadFurnitureData -= LoadFurnitureData;
+			FurnitureControllerEvents.GetFurnitureItem -= GetFurnitureItem;
 		}
 		
-		private void LoadFurnitureData(Action<FurnitureSO[]> action)
+		private void LoadFurnitureData(Action<FurnitureSO[]> callback)
 		{
-			action?.Invoke(_furnitureRepository.GetAllFurnitureItems());
+			callback.Invoke(_furnitureRepository.GetAllFurnitureItems());
+		}
+		
+		private void GetFurnitureItem(string id, Action<FurnitureSO> callback)
+		{
+			callback.Invoke(_furnitureRepository.GetFurnitureItemById(id));
 		}
 	}
 }

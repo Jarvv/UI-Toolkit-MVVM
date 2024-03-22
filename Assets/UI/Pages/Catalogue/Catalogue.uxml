@@ -3,7 +3,6 @@
     <Style src="project://database/Assets/UI/App.uss?fileID=7433441132597879392&amp;guid=bd049c6caa9b3d1418c2feda049b97d7&amp;type=3#App" />
     <ui:VisualElement name="catalogue" class="page bg-primary content-padding" style="flex-grow: 1;">
         <ui:Label text="Catalogue" name="header" class="TitilliumWeb-Bold text-secondary header" />
-        <ui:ScrollView />
-        <ui:ListView name="catalogue_list" item-template="project://database/Assets/UI/Components/FurnitureItem/FurnitureItem.uxml?fileID=9197481963319205126&amp;guid=d59ed671162ce584398f86d0c4925c72&amp;type=3#FurnitureItem" show-border="false" virtualization-method="DynamicHeight" reorder-mode="Animated" class="catalogue-list" />
+        <UI.Controls.CatalogueScrollView horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden" item-template="FurnitureItem" class="catalogue-list" />
     </ui:VisualElement>
 </ui:UXML>

@@ -98,12 +98,12 @@ public class UIViewControllerEditorWindow : EditorWindow
 		
 		CreateScript(
 			baseName + "UIView",
-			"Assets/Scripts/Views/", 
+			"Assets/Scripts/Views/UI/", 
 			Path.Combine(Application.dataPath, "ScriptTemplates/81-Scripts__C# UIView Script-NewUIView.cs.txt"));
 			
 		CreateScript(
 			baseName + "UIController",
-			"Assets/Scripts/Controllers/", 
+			"Assets/Scripts/Controllers/UI/", 
 			Path.Combine(Application.dataPath, "ScriptTemplates/81-Scripts__C# UIController Script-NewUIController.cs.txt"));
 
 		CreateUSS(
