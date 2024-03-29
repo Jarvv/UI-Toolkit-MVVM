@@ -1,10 +1,13 @@
 .catalogue-list {
     flex-grow: 1;
     padding-top: 40px;
-    padding-bottom: 40px;
+    padding-bottom: 0;
 }
 
 .unity-scroll-view__content-container {
     flex-direction: row;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-grow: 0;
 }

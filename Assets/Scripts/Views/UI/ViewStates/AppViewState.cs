@@ -15,20 +15,24 @@ namespace Views.UI.States
 		{
 			get; private set;
 		}
-		
+
 		public AppViewState() : base()
 		{
 			RegisterCallback<AttachToPanelEvent>(OnAttachToPanel);
-			
+
 			// Init states
 			EnumStates = new Dictionary<Enum, string>()
 			{
+				{AppViewStates.SPLASH, "app--splash"},
+				{AppViewStates.HOME, "app--home"},
 				{AppViewStates.CATALOGUE, "app--catalogue"},
+				{AppViewStates.FURNITURE, "app--furniture"},
+				{AppViewStates.AR, "app--ar"},
 			};
-			
-			State = AppViewStates.CATALOGUE;
+
+			State = AppViewStates.SPLASH;
 		}
-		
+
 		private void OnAttachToPanel(AttachToPanelEvent evt)
 		{
 			UnregisterCallback<AttachToPanelEvent>(OnAttachToPanel);
@@ -38,6 +42,6 @@ namespace Views.UI.States
 
 	public enum AppViewStates
 	{
-		CATALOGUE
+		SPLASH, HOME, CATALOGUE, FURNITURE, AR
 	}
 }

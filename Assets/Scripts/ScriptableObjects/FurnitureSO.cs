@@ -9,10 +9,11 @@ namespace ScriptableObjects
 	public class FurnitureSO : ScriptableObject
 	{
 		[HideInInspector]
-		public string id = Guid.NewGuid().ToString();	
+		public string id = Guid.NewGuid().ToString();
 		public string FurnitureName;
 		public string Description;
 		public Sprite Thumbnail;
 		public GameObject ModelPrefab;
+		public GameObject ModelPreview;
 	}
 }

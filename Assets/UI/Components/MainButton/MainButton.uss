@@ -1,0 +1,17 @@
+.main-button {
+    width: 400px;
+    height: 125px;
+    font-size: 40px;
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+    border-bottom-right-radius: 60px;
+    border-bottom-left-radius: 60px;
+    border-top-width: 4px;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+    border-top-color: rgb(61, 244, 222);
+    border-left-color: rgb(61, 244, 222);
+    border-right-color: rgb(194, 0, 127);
+    border-bottom-color: rgb(194, 0, 127);
+}

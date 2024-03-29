@@ -1,0 +1,11 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:Template name="MainButton" src="project://database/Assets/UI/Components/MainButton/MainButton.uxml?fileID=9197481963319205126&amp;guid=86c05a9200d413448bfc0bbcf098e991&amp;type=3#MainButton" />
+    <Style src="project://database/Assets/UI/Pages/Splash/Splash.uss?fileID=7433441132597879392&amp;guid=9abfe9e749ef77243936c88553a1185e&amp;type=3#Splash" />
+    <Style src="project://database/Assets/UI/App.uss?fileID=7433441132597879392&amp;guid=bd049c6caa9b3d1418c2feda049b97d7&amp;type=3#App" />
+    <engine:VisualElement name="splash" class="content-padding bg-primary" style="flex-grow: 1; justify-content: center; align-items: center;">
+        <engine:Label text="Welcome to &lt;color=#c2007f&gt;FurnituAR&lt;/color&gt;" name="header" class="TitilliumWeb-Bold text-secondary header" style="-unity-text-align: upper-center; margin-bottom: 40px;" />
+        <engine:Instance template="MainButton" name="enter_button" style="width: 400px; height: 125px;">
+            <AttributeOverrides element-name="button" text="Enter" />
+        </engine:Instance>
+    </engine:VisualElement>
+</engine:UXML>

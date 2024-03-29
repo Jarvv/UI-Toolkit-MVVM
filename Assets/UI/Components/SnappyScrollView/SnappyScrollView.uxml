@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Components/SnappyScrollView/SnappyScrollView.uss?fileID=7433441132597879392&amp;guid=13a372128f0d3104db4876cbea3ecd53&amp;type=3#SnappyScrollView" />
+    <UI.Controls.SnappyScrollView item-width="236" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden" name="SnappyScrollView" item-template="SelectFurnitureItem" style="width: 100%; height: 145px;" />
+</ui:UXML>

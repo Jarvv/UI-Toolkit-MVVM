@@ -1,0 +1,27 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:Template name="MainButton" src="project://database/Assets/UI/Components/MainButton/MainButton.uxml?fileID=9197481963319205126&amp;guid=86c05a9200d413448bfc0bbcf098e991&amp;type=3#MainButton" />
+    <Style src="project://database/Assets/UI/Pages/Furniture/Furniture.uss?fileID=7433441132597879392&amp;guid=9e752400dd8436942b11f5236e414b9e&amp;type=3#Furniture" />
+    <Style src="project://database/Assets/UI/App.uss?fileID=7433441132597879392&amp;guid=bd049c6caa9b3d1418c2feda049b97d7&amp;type=3#App" />
+    <engine:VisualElement name="furniture" data-source-type="Views.UI.ViewModels.FurnitureItemViewModel, Assembly-CSharp" class="page bg-primary content-padding" style="flex-grow: 1;">
+        <engine:Instance template="MainButton" name="back_button" style="width: 100px; height: 100px;">
+            <AttributeOverrides element-name="button" text="&lt;-" />
+        </engine:Instance>
+        <engine:VisualElement name="furniture_content" style="flex-grow: 1; align-items: center; margin-top: 80px; margin-bottom: 80px;">
+            <engine:Label name="furniture_name" text="Chair" class="header TitilliumWeb-Bold text-highlight" style="align-self: flex-start; margin-bottom: 160px;">
+                <Bindings>
+                    <engine:DataBinding property="text" data-source-path="Furniture.FurnitureName" binding-mode="ToTarget" />
+                </Bindings>
+            </engine:Label>
+            <engine:VisualElement name="furniture_image" style="width: 600px; height: 600px; margin-bottom: 160px; background-image: url(&quot;project://database/Assets/Sprites/chair2.png?fileID=2800000&amp;guid=8b4fc8bd95b43424697b89fbbe5693d3&amp;type=3#chair2&quot;);">
+                <Bindings>
+                    <engine:DataBinding property="style.backgroundImage" data-source-path="Furniture.Thumbnail" binding-mode="ToTarget" />
+                </Bindings>
+            </engine:VisualElement>
+            <engine:Label text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate felis pretium erat commodo, a ornare libero dapibus. Suspendisse sollicitudin imperdiet justo egestas pulvinar. Integer a purus eu urna ultricies malesuada vestibulum aliquet elit. Donec at vehicula lorem. Donec placerat, est nec aliquam mattis, nisl urna ornare nunc, ut ornare velit magna eget turpis. Aenean tristique ligula massa, sit amet viverra lacus venenatis at. Donec eget pharetra nisi. Pellentesque faucibus molestie gravida. Suspendisse a aliquet lectus. Nulla dapibus, massa sit amet rhoncus porta, purus nisi iaculis eros, eu eleifend nunc nunc eu ante. Fusce id massa ac elit facilisis malesuada. " name="furniture_description" class="body text-secondary" style="white-space: normal; -unity-text-align: upper-left; padding-top: 0; padding-right: 60px; padding-left: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-bottom: 0;">
+                <Bindings>
+                    <engine:DataBinding property="text" data-source-path="Furniture.Description" binding-mode="ToTarget" />
+                </Bindings>
+            </engine:Label>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

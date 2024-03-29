@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc91a054ab5778418c65ca50aa07e07, type: 3}
+  m_Name: Bed
+  m_EditorClassIdentifier: 
+  id: 34f1c06e-a86f-4fb7-bb6c-0e9ad7f249db
+  FurnitureName: Bed
+  Description: Unwind in the embrace of our premium bed, designed with both comfort
+    and style in mind. Featuring a sturdy frame that guarantees durability, it comes
+    with a plush mattress that promises serene sleep. Whether it's the sleek lines
+    of a modern design or the intricate patterns of a classic aesthetic, our bed
+    is available in various styles to suit your personal sanctuary.
+  Thumbnail: {fileID: 21300000, guid: c285f5a3024f7644f8ff08c37d3b517d, type: 3}
+  ModelPrefab: {fileID: 7984147990161788615, guid: ab1574b738b5dd14db64718a5986d95b, type: 3}
+  ModelPreview: {fileID: 4986252682560436793, guid: 5ea26f444c6b6d34d987cabe49a4e6ee, type: 3}

@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/UI/Pages/Catalogue/Catalogue.uss?fileID=7433441132597879392&amp;guid=de45c7245e73fcd4998bf5716cdf2c31&amp;type=3#Catalogue" />
     <Style src="project://database/Assets/UI/App.uss?fileID=7433441132597879392&amp;guid=bd049c6caa9b3d1418c2feda049b97d7&amp;type=3#App" />
     <ui:VisualElement name="catalogue" class="page bg-primary content-padding" style="flex-grow: 1;">
-        <ui:Label text="Catalogue" name="header" class="TitilliumWeb-Bold text-secondary header" />
+        <ui:Label text="Catalogue" name="header" class="TitilliumWeb-Bold header text-highlight" />
         <UI.Controls.CatalogueScrollView horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden" item-template="FurnitureItem" class="catalogue-list" />
     </ui:VisualElement>
 </ui:UXML>

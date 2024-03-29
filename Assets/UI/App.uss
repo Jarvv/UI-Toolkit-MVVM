@@ -4,15 +4,15 @@
 }
 
 .TitilliumWeb-Bold {
-    -unity-font-definition: url('project://database/Assets/Fonts/TitilliumWeb-Bold.ttf?fileID=12800000&guid=e4d2e023b7abbd84490e6fce9834605d&type=3#TitilliumWeb-Bold');
+    -unity-font-definition: url("project://database/Assets/Fonts/TitilliumWeb-Bold.ttf?fileID=12800000&guid=e4d2e023b7abbd84490e6fce9834605d&type=3#TitilliumWeb-Bold");
 }
 
 .TitilliumWeb-Light {
-    -unity-font-definition: url('project://database/Assets/Fonts/TitilliumWeb-Light.ttf?fileID=12800000&guid=6a0642339c4a2ba4cb39c97d06b258d6&type=3#TitilliumWeb-Light');
+    -unity-font-definition: url("project://database/Assets/Fonts/TitilliumWeb-Light.ttf?fileID=12800000&guid=6a0642339c4a2ba4cb39c97d06b258d6&type=3#TitilliumWeb-Light");
 }
 
 .TitilliumWeb-Regular {
-    -unity-font-definition: url('project://database/Assets/Fonts/TitilliumWeb-Regular.ttf?fileID=12800000&guid=3014f89a97ba3eb43996c1df6be6cec4&type=3#TitilliumWeb-Regular');
+    -unity-font-definition: url("project://database/Assets/Fonts/TitilliumWeb-Regular.ttf?fileID=12800000&guid=3014f89a97ba3eb43996c1df6be6cec4&type=3#TitilliumWeb-Regular");
 }
 
 .bg-primary {
@@ -20,18 +20,35 @@
 }
 
 .bg-secondary {
+    color: rgb(170, 166, 195);
 }
 
 .bg-tertiary {
+    background-color: rgb(21, 16, 48);
 }
 
 .text-primary {
+    background-color: rgb(5, 8, 22);
+}
+
+.text-secondary {
+    color: rgb(170, 166, 195);
 }
 
 .text-tertiary {
+    color: rgb(21, 16, 48);
+}
+
+.text-highlight {
+    color: rgb(194, 0, 127);
 }
 
 .text-white {
+    color: rgb(255, 255, 255);
+}
+
+.text-highlight {
+    color: rgb(194, 0, 127);
 }
 
 .content-padding {
@@ -44,10 +61,6 @@
 .catalogue-list {
 }
 
-.text-secondary {
-    color: rgb(170, 166, 195);
-}
-
 .header {
     padding-top: 0;
     padding-right: 0;
@@ -58,4 +71,8 @@
     margin-bottom: 0;
     margin-left: 0;
     font-size: 70px;
+}
+
+.body {
+    font-size: 40px;
 }

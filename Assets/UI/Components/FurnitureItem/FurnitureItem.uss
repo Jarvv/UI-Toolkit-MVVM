@@ -1,5 +1,4 @@
 .furniture-item {
-    background-color: rgb(21, 16, 48);
     padding-top: 0;
     padding-right: 0;
     padding-bottom: 0;

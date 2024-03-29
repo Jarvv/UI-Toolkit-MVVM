@@ -1,0 +1,5 @@
+.furniture-itemo {
+    width: 145px;
+    height: 145px;
+    background-color: rgb(194, 0, 127);
+}

@@ -5,6 +5,42 @@
     display: none;
 }
 
-.app--catalogue .catalogue {
+.app--catalogue > .catalogue {
     display: flex;
+}
+
+.home {
+    display: none;
+}
+
+.app--home > .home {
+    display: flex;
+}
+
+.furniture {
+    display: none;
+}
+
+.app--furniture > .furniture {
+    display: flex;
+}
+
+.ar {
+    display: none;
+}
+
+.app--ar > .ar {
+    display: flex;
+}
+
+.splash {
+    display: none;
+}
+
+.app--splash .splash {
+    display: flex;
+}
+
+.body {
+    font-size: 40px;
 }

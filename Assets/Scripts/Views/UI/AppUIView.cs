@@ -19,5 +19,10 @@ namespace Views.UI
 		{
 			_appViewState = _rootElement.Q<AppViewState>();
 		}
+		
+		public void UpdateAppViewState(AppViewStates state)
+		{
+			_appViewState.SetState(state);
+		}
 	}
 }

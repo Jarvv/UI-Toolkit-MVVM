@@ -1,9 +1,19 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="AR" src="project://database/Assets/UI/Pages/AR/AR.uxml?fileID=9197481963319205126&amp;guid=0f891f7ddfbeb66408bc8ca07eb35c5d&amp;type=3#AR" />
     <ui:Template name="Catalogue" src="project://database/Assets/UI/Pages/Catalogue/Catalogue.uxml?fileID=9197481963319205126&amp;guid=0178faa5deee9e64cb455d6dcd6549f0&amp;type=3#Catalogue" />
+    <ui:Template name="Furniture" src="project://database/Assets/UI/Pages/Furniture/Furniture.uxml?fileID=9197481963319205126&amp;guid=28d240bb2a8559d44bd18f13cff95c4e&amp;type=3#Furniture" />
+    <ui:Template name="Home" src="project://database/Assets/UI/Pages/Home/Home.uxml?fileID=9197481963319205126&amp;guid=dacefdc18cabbf04dbbd94cb53ab5ce0&amp;type=3#Home" />
+    <ui:Template name="NavBar" src="project://database/Assets/UI/Components/NavBar/NavBar.uxml?fileID=9197481963319205126&amp;guid=48de3f3cc5a76054299872a9aef67a9d&amp;type=3#NavBar" />
+    <ui:Template name="Splash" src="project://database/Assets/UI/Pages/Splash/Splash.uxml?fileID=9197481963319205126&amp;guid=03c2f952a1d13e0498397793ba8d5fe1&amp;type=3#Splash" />
     <Style src="project://database/Assets/UI/App.uss?fileID=7433441132597879392&amp;guid=bd049c6caa9b3d1418c2feda049b97d7&amp;type=3#App" />
     <Style src="project://database/Assets/UI/AppStates.uss?fileID=7433441132597879392&amp;guid=c4283de7848810a459181eab43f8f1ed&amp;type=3#AppStates" />
-    <ui:VisualElement name="app" class="page app" style="flex-grow: 1; background-color: rgb(5, 8, 22);">
+    <ui:VisualElement name="app" picking-mode="Ignore" class="page app" style="flex-grow: 1;">
+        <ui:Instance template="AR" name="AR" picking-mode="Ignore" class="ar page" />
         <ui:Instance template="Catalogue" name="Catalogue" class="page catalogue" />
+        <ui:Instance template="Furniture" name="Furniture" data-source-type="Views.UI.ViewModels.FurnitureItemViewModel, Assembly-CSharp" class="page furniture" />
+        <ui:Instance template="Home" name="Home" class="home page" />
+        <ui:Instance template="NavBar" name="NavBar" />
+        <ui:Instance template="Splash" name="Splash" class="page splash" style="position: absolute; top: 0; right: auto; left: 0; bottom: 0;" />
         <Views.UI.States.AppViewState />
     </ui:VisualElement>
 </ui:UXML>

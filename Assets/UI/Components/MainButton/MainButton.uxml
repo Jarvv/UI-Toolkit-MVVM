@@ -1,0 +1,5 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Components/MainButton/MainButton.uss?fileID=7433441132597879392&amp;guid=6e4af9fc833d27b4191fce1a629a26e6&amp;type=3#MainButton" />
+    <Style src="project://database/Assets/UI/App.uss?fileID=7433441132597879392&amp;guid=bd049c6caa9b3d1418c2feda049b97d7&amp;type=3#App" />
+    <engine:Button text="Button" name="button" class="bg-tertiary text-white main-button TitilliumWeb-Bold" style="width: 100%; height: 100%;" />
+</engine:UXML>

@@ -8,18 +8,14 @@ namespace Views.UI.ViewModels
 {
 	public class FurnitureItemViewModel : ViewModel
 	{
-		public FurnitureItemViewModel(FurnitureSO furniture) : base()
-		{
-			_furniture = furniture;
-		}
-		
+		[SerializeField, DontCreateProperty]
 		private FurnitureSO _furniture;
-	
+
 		[CreateProperty]
 		public FurnitureSO Furniture
 		{
 			get => _furniture;
-			set => SetProperty(ref _furniture, value);
+			set => SetProperty(ref _furniture, value, nameof(Furniture));
 		}
 	}
 }

@@ -1,0 +1,23 @@
+.select-container {
+    display: none;
+}
+
+.ar--select > .select-container {
+    display: flex;
+}
+
+.tap-to-place-container {
+    display: none;
+}
+
+.ar--tap_to_place > .tap-to-place-container {
+    display: flex;
+}
+
+.position-container {
+    display: none;
+}
+
+.ar--position > .position-container {
+    display: flex;
+}
