@@ -3,6 +3,6 @@
     <Style src="project://database/Assets/UI/App.uss?fileID=7433441132597879392&amp;guid=bd049c6caa9b3d1418c2feda049b97d7&amp;type=3#App" />
     <engine:VisualElement name="home" class="page content-padding bg-primary" style="flex-grow: 1;">
         <engine:Label text="Home" name="home" class="text-highlight header TitilliumWeb-Bold" />
-        <engine:Label text="This sample project demonstrates using a model-view-viewmodel design pattern utilising UI Toolkit to create an AR furniture placement app." class="text-secondary body" style="white-space: normal;" />
+        <engine:Label text="This sample project demonstrates using a model-view-viewmodel design pattern utilising UI Toolkit to create an AR furniture placement app.&#10;&#10;Taking advantage of runtime binding that was released in the most recent versions of Unity, the Model (ScriptableObjects containg information about the various items of furniture) and the View (scripts containg user interface logic) can be separated by ViewModels through the use of the Data Source." class="text-secondary body" style="white-space: normal;" />
     </engine:VisualElement>
 </engine:UXML>

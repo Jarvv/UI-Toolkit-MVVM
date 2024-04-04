@@ -11,6 +11,8 @@ namespace Views.UI
 	{
 		private Button _backButton;
 
+		private FurnitureItemViewModel _furnitureItemViewModel => (FurnitureItemViewModel)_rootElement.dataSource;
+
 		public FurnitureUIView(VisualElement parentElement) : base(parentElement)
 		{
 			SetVisualElements();
@@ -31,7 +33,7 @@ namespace Views.UI
 
 		public void SetFurniture(FurnitureSO furnitureSO)
 		{
-			((FurnitureItemViewModel)_rootElement.dataSource).Furniture = furnitureSO;
+			_furnitureItemViewModel.Furniture = furnitureSO;
 		}
 	}
 }

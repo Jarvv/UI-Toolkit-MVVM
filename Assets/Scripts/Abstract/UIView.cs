@@ -8,13 +8,13 @@ using Util;
 public abstract class UIView
 {
 	public Action<Enum, object> ViewEvent;
-	
+
 	protected UIDocument UI;
-	
+
 	protected VisualElement _rootElement;
-	
+
 	protected EventRegistry _eventRegistry;
-	
+
 	public UIView(VisualElement parentElement)
 	{
 		_rootElement = parentElement;

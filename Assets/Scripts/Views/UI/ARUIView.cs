@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjects;
@@ -14,14 +15,12 @@ namespace Views.UI
 		private ARViewState _arViewState;
 
 		private Button _confirmButton;
-		private Label _tapPlaceMessage;
 		private VisualElement _tapImage;
 		private VisualElement _scanImage;
 		private SnappyScrollView _furnitureSelectScrollView;
 		private Button _furnitureSelectButton;
-		private Label _furnitureName;
 
-		private FurnitureSO _furniture;
+		private ARUIViewModel _arUIViewModel => (ARUIViewModel)_rootElement.dataSource;
 
 		private List<FurnitureSelectUIView> _furnitureSelectItems = new List<FurnitureSelectUIView>();
 
@@ -29,18 +28,22 @@ namespace Views.UI
 		{
 			SetVisualElements();
 			RegisterCallbacks();
+
+			parentElement.dataSource = new ARUIViewModel();
+
+			parentElement.RegisterCallback<GeometryChangedEvent>(OnGeometryChangedEvent);
+
+			SetTapPlaceText("Scan your surroundings to begin");
 		}
 
 		private void SetVisualElements()
 		{
 			_arViewState = _rootElement.Q<ARViewState>();
 			_confirmButton = _rootElement.Q<VisualElement>("ConfirmButton").Q<Button>();
-			_tapPlaceMessage = _rootElement.Q<Label>("tap_place_message");
 			_tapImage = _rootElement.Q<VisualElement>("tap_image");
 			_scanImage = _rootElement.Q<VisualElement>("scan_image");
 			_furnitureSelectScrollView = _rootElement.Q<SnappyScrollView>();
 			_furnitureSelectButton = _rootElement.Q<Button>("furniture_select_button");
-			_furnitureName = _rootElement.Q<Label>("furniture_name");
 		}
 
 		private void RegisterCallbacks()
@@ -54,7 +57,7 @@ namespace Views.UI
 			_eventRegistry.RegisterCallback<ClickEvent>(_furnitureSelectButton, ev =>
 			{
 				UpdateARViewState(ARViewStates.TAP_TO_PLACE);
-				UIEvents.SelectFurniture(_furniture.id);
+				UIEvents.SelectFurniture(_arUIViewModel.Furniture.id);
 			});
 
 			_furnitureSelectScrollView.ItemActive += OnItemActive;
@@ -66,18 +69,30 @@ namespace Views.UI
 
 			_furnitureSelectScrollView.ItemActive -= OnItemActive;
 			_furnitureSelectItems.ForEach(item => item.ScrollToItem -= _furnitureSelectScrollView.ScrollToItem);
+
+			_rootElement.UnregisterCallback<GeometryChangedEvent>(OnGeometryChangedEvent);
+		}
+
+		private void OnGeometryChangedEvent(GeometryChangedEvent _)
+		{
+			if (_rootElement.resolvedStyle.display == DisplayStyle.None)
+			{
+				UpdateARViewState(ARViewStates.SELECT);
+				_scanImage.style.display = DisplayStyle.Flex;
+				_tapImage.style.display = DisplayStyle.None;
+				SetTapPlaceText("Scan your surroundings to begin");
+			}
 		}
 
 
 		private void OnItemActive(VisualElement element)
 		{
-			_furniture = ((FurnitureItemViewModel)element.dataSource).Furniture;
-			_furnitureName.text = _furniture.FurnitureName;
+			_arUIViewModel.Furniture = ((FurnitureItemViewModel)element.dataSource).Furniture;
 		}
 
 		private void SetTapPlaceText(string text)
 		{
-			_tapPlaceMessage.text = text;
+			_arUIViewModel.TapPlaceMessage = text;
 		}
 
 		public void SetTapPlaceImage(TrackAndPlaceEvents e)
@@ -122,6 +137,8 @@ namespace Views.UI
 
 				furnitureSelectItemView.ScrollToItem += _furnitureSelectScrollView.ScrollToItem;
 			}
+
+			_furnitureSelectScrollView.AddMargins();
 		}
 
 		public void UpdateARViewState(ARViewStates state)

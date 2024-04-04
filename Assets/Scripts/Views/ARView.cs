@@ -67,68 +67,93 @@ namespace Views
 
 		private void Update()
 		{
-			if (!_objectHasSpawned && _tapPlaceReady)
+			if (_objectHasSpawned || !_tapPlaceReady) return;
+
+			Camera camera = Camera.main;
+			Ray ray = camera.ScreenPointToRay(centre);
+
+			ProcessARPlaneHit(ray);
+			ProcessPhysicsRaycast(ray, camera);
+		}
+
+		private void ProcessARPlaneHit(Ray ray)
+		{
+			if (_raycastManager.Raycast(ray, s_Hits, TrackableType.PlaneWithinPolygon))
 			{
-				Ray ray = Camera.main.ScreenPointToRay(centre);
-
-				if (_raycastManager.Raycast(ray, s_Hits, TrackableType.PlaneWithinPolygon))
-				{
-					Pose hitPose = s_Hits[0].pose;
-					_planeObject.transform.position = hitPose.position;
-					_planeObject.SetActive(true);
-				}
-
-				if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, LayerMask.GetMask("ARPlane")))
-				{
-					if (!_previewHasSpawned)
-					{
-						_previewHasSpawned = true;
-						_previewInstance = Instantiate(_previewPrefab);
-						_previewInstance.transform.position = hit.point;
-						AREvents.TrackAndPlace(TrackAndPlaceEvents.PREFAB_PLACED);
-					}
-					else
-					{
-						_previewInstance.transform.position = hit.point;
-					}
-
-					MakePrefabFaceCamera(_previewInstance);
-
-					float dist = Vector3.Distance(_previewInstance.transform.position, Camera.main.transform.position);
-
-					if (dist < 1.5)
-					{
-						_previewInstance.SetActive(false);
-						AREvents.TrackAndPlace(TrackAndPlaceEvents.TOO_CLOSE);
-					}
-					else if (dist > 5)
-					{
-						_previewInstance.SetActive(false);
-						AREvents.TrackAndPlace(TrackAndPlaceEvents.TOO_FAR);
-					}
-					else
-					{
-						_previewInstance.SetActive(true);
-						AREvents.TrackAndPlace(TrackAndPlaceEvents.JUST_RIGHT);
-					}
-				}
-
-				if (_previewHasSpawned && _previewInstance.activeSelf)
-				{
-					_objectHasSpawned = true;
-					_furnitureInstance = Instantiate(_furniturePrefab, _previewInstance.transform.position, _previewInstance.transform.rotation, transform);
-					_furnitureInstances.Add(_furnitureInstance);
-					Handheld.Vibrate();
-					Destroy(_previewInstance);
-					AREvents.TrackAndPlace(TrackAndPlaceEvents.PREFAB_PLACED);
-				}
+				Pose hitPose = s_Hits[0].pose;
+				_planeObject.transform.position = hitPose.position;
+				_planeObject.SetActive(true);
 			}
+		}
+
+		private void ProcessPhysicsRaycast(Ray ray, Camera camera)
+		{
+			if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, LayerMask.GetMask("ARPlane")))
+			{
+				UpdatePreviewPosition(hit.point);
+				MakePrefabFaceCamera(_previewInstance);
+
+				float dist = Vector3.Distance(_previewInstance.transform.position, camera.transform.position);
+				UpdatePreviewVisibility(dist);
+
+				if (!GetTouch() || !_previewInstance.activeSelf) return;
+
+				PlaceFurniture();
+			}
+		}
+
+		private void UpdatePreviewPosition(Vector3 hitPoint)
+		{
+			if (!_previewHasSpawned)
+			{
+				_previewHasSpawned = true;
+				_previewInstance = Instantiate(_previewPrefab);
+				AREvents.TrackAndPlace(TrackAndPlaceEvents.PREVIEW_PLACED);
+			}
+
+			_previewInstance.transform.position = hitPoint;
+		}
+
+		private void UpdatePreviewVisibility(float distance)
+		{
+			bool isActive = true;
+			TrackAndPlaceEvents eventType = TrackAndPlaceEvents.JUST_RIGHT;
+
+			if (distance < 1.5f)
+			{
+				isActive = false;
+				eventType = TrackAndPlaceEvents.TOO_CLOSE;
+			}
+			else if (distance > 5f)
+			{
+				isActive = false;
+				eventType = TrackAndPlaceEvents.TOO_FAR;
+			}
+
+			_previewInstance.SetActive(isActive);
+			AREvents.TrackAndPlace(eventType);
+		}
+
+		private void PlaceFurniture()
+		{
+			_objectHasSpawned = true;
+			_furnitureInstance = Instantiate(_furniturePrefab, _previewInstance.transform.position, _previewInstance.transform.rotation, transform);
+			_furnitureInstances.Add(_furnitureInstance);
+			Handheld.Vibrate();
+			Destroy(_previewInstance);
+			AREvents.TrackAndPlace(TrackAndPlaceEvents.PREFAB_PLACED);
 		}
 
 		public void SetTapPlacePrefabs(GameObject preview, GameObject prefab)
 		{
 			_previewPrefab = preview;
 			_furniturePrefab = prefab;
+			StartCoroutine(WaitToReady());
+		}
+
+		private IEnumerator WaitToReady()
+		{
+			yield return null;
 			_tapPlaceReady = true;
 		}
 
@@ -139,24 +164,8 @@ namespace Views
 			_objectHasSpawned = false;
 			_previewHasSpawned = false;
 			_tapPlaceReady = false;
-		}
 
-
-		[ContextMenu("TapPlace")]
-		public void TapPlaceFromMenu()
-		{
-			StartCoroutine(TapPlaceEditor());
-		}
-
-		private IEnumerator TapPlaceEditor()
-		{
-			yield return new WaitForSeconds(1);
-			_previewInstance = Instantiate(_previewPrefab, new Vector3(0, -1, 3), new Quaternion());
-			AREvents.TrackAndPlace(TrackAndPlaceEvents.PREVIEW_PLACED);
-			yield return new WaitForSeconds(1);
-			Destroy(_previewInstance);
-			_furnitureInstance = Instantiate(_furniturePrefab, _previewInstance.transform.position, _previewInstance.transform.rotation, transform);
-			AREvents.TrackAndPlace(TrackAndPlaceEvents.PREFAB_PLACED);
+			_furnitureInstance = null;
 		}
 
 		private void MakePrefabFaceCamera(GameObject prefab)
@@ -195,6 +204,29 @@ namespace Views
 			_furnitureInstance = furniture;
 
 			AREvents.EditFurniturePosition();
+		}
+
+		private bool GetTouch()
+		{
+			if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+				return true;
+			else
+				return false;
+		}
+
+		// Editor functions
+		[ContextMenu("TapPlace")]
+		public void TapPlaceFromMenu()
+		{
+			StartCoroutine(TapPlaceEditor());
+		}
+
+		private IEnumerator TapPlaceEditor()
+		{
+			yield return new WaitForSeconds(1);
+			UpdatePreviewPosition(new Vector3(0, -1, 3));
+			yield return new WaitForSeconds(1);
+			PlaceFurniture();
 		}
 	}
 

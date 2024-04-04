@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ARFurniture : MonoBehaviour
+namespace AR
 {
-	public void OnMouseDown()
+	public class ARFurniture : MonoBehaviour
 	{
-		if (!EventSystem.current.IsPointerOverGameObject() && !EventSystem.current.currentSelectedGameObject)
+		public void OnMouseDown()
 		{
-			AREvents.ARFurnitureTapped(gameObject);
+			if (!EventSystem.current.IsPointerOverGameObject())
+			{
+				AREvents.ARFurnitureTapped(transform.parent.gameObject);
+			}
 		}
 	}
 }
+

@@ -9,17 +9,17 @@ namespace Views.UI
 	{
 		private Button _itemButton;
 
+		private FurnitureItemViewModel _furnitureItemViewModel => (FurnitureItemViewModel)_rootElement.dataSource;
+
 		public FurnitureItemUIView(VisualElement parentElement, FurnitureSO furnitureSO) : base(parentElement)
 		{
 			SetVisualElements();
 			RegisterCallbacks();
 
-			FurnitureItemViewModel vm = new FurnitureItemViewModel
+			parentElement.dataSource = new FurnitureItemViewModel
 			{
 				Furniture = furnitureSO
 			};
-
-			parentElement.dataSource = vm;
 		}
 
 		private void SetVisualElements()
@@ -29,7 +29,7 @@ namespace Views.UI
 
 		private void RegisterCallbacks()
 		{
-			_eventRegistry.RegisterCallback<ClickEvent>(_itemButton, evt => UIEvents.CatalogueItemOpened(((FurnitureItemViewModel)_rootElement.dataSource).Furniture.id));
+			_eventRegistry.RegisterCallback<ClickEvent>(_itemButton, evt => UIEvents.CatalogueItemOpened(_furnitureItemViewModel.Furniture.id));
 		}
 	}
 }

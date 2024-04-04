@@ -4,9 +4,13 @@
     <Style src="project://database/Assets/UI/Pages/AR/AR.uss?fileID=7433441132597879392&amp;guid=d53d832ddcc8fab488148d308e7d4306&amp;type=3#AR" />
     <Style src="project://database/Assets/UI/App.uss?fileID=7433441132597879392&amp;guid=bd049c6caa9b3d1418c2feda049b97d7&amp;type=3#App" />
     <Style src="project://database/Assets/UI/Pages/AR/ARViewStates.uss?fileID=7433441132597879392&amp;guid=71a3d0c9c01c65c42a0fe2099b7822cd&amp;type=3#ARViewStates" />
-    <engine:VisualElement name="ar" picking-mode="Ignore" class="page content-padding" style="flex-grow: 1;">
+    <engine:VisualElement name="ar" picking-mode="Ignore" data-source-type="Views.UI.ViewModels.ARUIViewModel, Assembly-CSharp" class="page content-padding" style="flex-grow: 1;">
         <engine:VisualElement name="select_furniture_container" picking-mode="Ignore" class="select-container" style="flex-grow: 1; justify-content: flex-end; align-items: center;">
-            <engine:Label text="Label" name="furniture_name" class="header TitilliumWeb-Bold text-highlight" style="position: absolute; top: 0;" />
+            <engine:Label text="Label" name="furniture_name" class="header TitilliumWeb-Bold text-highlight" style="position: absolute; top: 0;">
+                <Bindings>
+                    <engine:DataBinding property="text" data-source-path="Furniture.FurnitureName" binding-mode="ToTarget" />
+                </Bindings>
+            </engine:Label>
             <engine:Label text="Select an item to start" name="select_item" class="body TitilliumWeb-Regular text-highlight" style="-unity-text-align: upper-center; font-size: 50px; margin-bottom: 60px;" />
             <engine:Instance template="SnappyScrollView" name="TemplateContainer" style="width: 100%; bottom: 2.5px;" />
             <engine:Button name="furniture_select_button" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-color: rgba(188, 188, 188, 0); background-image: url(&quot;project://database/Assets/Sprites/Icons/circle-regular.png?fileID=2800000&amp;guid=87c3cd9241901e7489e879dc70f7f31c&amp;type=3#circle-regular&quot;); width: 150px; height: 150px; position: absolute; -unity-background-image-tint-color: rgb(194, 0, 127);" />
@@ -14,13 +18,18 @@
         <engine:VisualElement name="tap_to_place_container" picking-mode="Ignore" class="tap-to-place-container" style="flex-grow: 1; align-items: center; justify-content: center;">
             <engine:VisualElement name="scan_image" style="flex-grow: 0; width: 500px; height: 500px; display: flex; background-image: url(&quot;project://database/Assets/Sprites/Instructions/movedevice_22.png?fileID=2800000&amp;guid=eeced5bf90ff8c348a1eb4f9828a36bb&amp;type=3#movedevice_22&quot;); -unity-background-image-tint-color: rgb(194, 0, 127);" />
             <engine:VisualElement name="tap_image" style="flex-grow: 0; width: 500px; height: 500px; display: none; background-image: url(&quot;project://database/Assets/Sprites/Instructions/taptoplace_00.png?fileID=2800000&amp;guid=badc1ed5448456c49a8b9d9caa3eccd5&amp;type=3#taptoplace_00&quot;); -unity-background-image-tint-color: rgb(194, 0, 127);" />
-            <engine:Label text="Scan your surroundings to begin." name="tap_place_message" class="text-highlight TitilliumWeb-Regular header" style="display: flex; -unity-text-align: upper-center; white-space: normal; width: 700px; margin-top: 40px;" />
+            <engine:Label text="Scan your surroundings to begin." name="tap_place_message" class="text-highlight TitilliumWeb-Regular header" style="display: flex; -unity-text-align: upper-center; white-space: normal; width: 700px; margin-top: 40px;">
+                <Bindings>
+                    <engine:DataBinding property="text" data-source-path="TapPlaceMessage" binding-mode="ToTarget" />
+                </Bindings>
+            </engine:Label>
         </engine:VisualElement>
         <engine:VisualElement name="position_container" picking-mode="Ignore" class="position-container" style="flex-grow: 1; align-items: center; justify-content: flex-end;">
             <engine:Label text="Tap to reposition" class="body text-highlight TitilliumWeb-Regular" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 50px;" />
             <engine:Label text="Pinch to rotate" class="body text-highlight TitilliumWeb-Regular" style="margin-top: 0; margin-right: 0; margin-bottom: 60px; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 50px;" />
             <engine:Instance template="MainButton" name="ConfirmButton" style="height: 125px; width: 400px;">
                 <AttributeOverrides element-name="button" text="Confirm" />
+                <engine:DataBinding property="text" data-source-path="TapPlaceMessage" binding-mode="ToTarget" />
             </engine:Instance>
         </engine:VisualElement>
         <Views.UI.States.ARViewState name="ARViewState" style="position: absolute;" />

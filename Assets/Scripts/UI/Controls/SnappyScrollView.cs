@@ -67,9 +67,7 @@ namespace UI.Controls
 				_isSnapping = false;
 
 				if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
-				{
 					_isDragging = true;
-				}
 			}
 		}
 
@@ -106,17 +104,6 @@ namespace UI.Controls
 
 		public void AddItem(TemplateContainer item)
 		{
-			float margin = (Screen.width / 2f) - ((ItemWidth + 35) / 2f);
-
-			if (childCount == 0)
-				item.style.marginLeft = margin;
-			else
-			{
-				Children().ToList()[childCount - 1].AddToClassList("item");
-				Children().ToList()[childCount - 1].style.marginRight = StyleKeyword.Null;
-				item.style.marginRight = margin;
-			}
-
 			Add(item);
 
 			horizontalScroller.value = 0;
@@ -125,6 +112,29 @@ namespace UI.Controls
 			MarkDirtyRepaint();
 
 			ItemActive(Children().ToList()[_currentChild]);
+		}
+
+		public void AddMargins()
+		{
+			RegisterCallback<GeometryChangedEvent>((ev) =>
+			{
+				List<VisualElement> children = Children().ToList();
+				for (int i = 0; i < children.Count; i++)
+				{
+					VisualElement item = children[i];
+
+					float margin = (resolvedStyle.width / 2f) - ((ItemWidth - 91f) / 2);
+
+					if (i == 0)
+						item.style.marginLeft = margin;
+					else
+					{
+						Children().ToList()[i - 1].AddToClassList("item");
+						Children().ToList()[i - 1].style.marginRight = StyleKeyword.Null;
+						item.style.marginRight = margin;
+					}
+				}
+			});
 		}
 
 		public void ScrollToItem(VisualElement element)
